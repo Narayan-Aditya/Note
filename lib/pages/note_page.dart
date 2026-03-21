@@ -14,7 +14,6 @@ class NotePage extends StatefulWidget {
 }
 
 class _NotePageState extends State<NotePage> {
-  // ACCESS USER TYPED TEXT
   final textControler = TextEditingController();
 
   @override
@@ -23,10 +22,8 @@ class _NotePageState extends State<NotePage> {
     readNotes();
   }
 
-  // CREATE A NEW NOTE
   void createNote() {
     showDialog(
-      // barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(
         title: Text('New Note'),
@@ -48,22 +45,18 @@ class _NotePageState extends State<NotePage> {
     );
   }
 
-  // READ NOTES FROM DB
   void readNotes() {
     context.read<NoteDatabase>().fetchNotes();
   }
 
-  // UPDATE A NOTE FROM DB
   void updateNote(Note note) {
     textControler.text = note.text;
     showDialog(
-      // barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Update Note'),
         content: TextField(controller: textControler),
         actions: [
-          // UPDATE BUTTON
           MaterialButton(
             onPressed: () {
               if (textControler.text == '') {

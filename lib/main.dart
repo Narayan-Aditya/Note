@@ -5,7 +5,6 @@ import 'package:note/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  // INIT THE DB
   WidgetsFlutterBinding.ensureInitialized();
   await NoteDatabase.initialize();
 
